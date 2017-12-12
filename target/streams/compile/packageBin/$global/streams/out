@@ -1,0 +1,19 @@
+[0m[[0m[0minfo[0m] [0m[0mPackaging /home/graham/code/baeldung/target/scala-2.12/baeldung_2.12-1.0.0.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/mjuaji/baeldung/Hello.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/graham/code/baeldung/target/scala-2.12/classes/com/mjuaji/baeldung/Hello.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/mjuaji/baeldung/HelloController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/graham/code/baeldung/target/scala-2.12/classes/com/mjuaji/baeldung/HelloController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/mjuaji/baeldung/UserController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/graham/code/baeldung/target/scala-2.12/classes/com/mjuaji/baeldung/UserController.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/mjuaji[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/graham/code/baeldung/target/scala-2.12/classes/com/mjuaji[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/graham/code/baeldung/target/scala-2.12/classes/com[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/mjuaji/baeldung/User.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/graham/code/baeldung/target/scala-2.12/classes/com/mjuaji/baeldung/User.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/mjuaji/baeldung[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/graham/code/baeldung/target/scala-2.12/classes/com/mjuaji/baeldung[0m
+[0m[[0m[0mdebug[0m] [0m[0m	com/mjuaji/baeldung/App.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/graham/code/baeldung/target/scala-2.12/classes/com/mjuaji/baeldung/App.class[0m
+[0m[[0m[0minfo[0m] [0m[0mDone packaging.[0m
