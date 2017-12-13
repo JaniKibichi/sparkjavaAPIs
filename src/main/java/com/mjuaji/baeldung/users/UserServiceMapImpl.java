@@ -3,7 +3,6 @@ package com.mjuaji.baeldung.users;
 import com.mjuaji.baeldung.utils.Path;
 
 //java
-import com.sun.org.apache.xpath.internal.axes.IteratorPool;
 import java.util.Random;
 import java.util.HashMap;
 import java.util.ArrayList;
@@ -49,11 +48,14 @@ import spark.Session;
 public class UserServiceMapImpl implements UserService{  
     private HashMap<String, User> userMap; 
     List<User> alluserlist = new ArrayList<User>();
+    static User foundusers;
+    static User findUser;
 
-    public UserServiceMapImpl(){ userMap = new HashMap<>(); }
+    public UserServiceMapImpl(){}
     
     @Override
     public void addUser(User user){
+
       try{
           //Set up datastore and collections
           DB db = new MongoClient().getDB(Path.Database.LOCAL_DBNAME);            
@@ -66,11 +68,12 @@ public class UserServiceMapImpl implements UserService{
       } catch (IOException e) {
         // ...
       }
+
     }
     
     @Override
     public Collection<User> getUsers(){
-      //return userMap.values();
+ 
       try{
         //Set up datastore and collections
         DB db = new MongoClient().getDB(Path.Database.LOCAL_DBNAME);            
@@ -89,55 +92,119 @@ public class UserServiceMapImpl implements UserService{
       } catch (IOException e) {
         // ...
       }
+
       return alluserlist;
     }
     
     @Override
     public User getUser(String id){
-     return userMap.get(id);
+
+      try{
+        //Set up datastore and collections
+        DB db = new MongoClient().getDB(Path.Database.LOCAL_DBNAME);            
+        Jongo ds = new Jongo(db); 
+        
+        MongoCollection users = ds.getCollection(Path.Database.USER_COLLECTION); 
+        Iterable<User> foundusers = users.find("{id: "+id+"}").as(User.class); 
+        Iterator<User> alluser=foundusers.iterator();
+
+        while (alluser.hasNext()) {
+          alluserlist.add(alluser.next());
+        }
+
+      } catch (UnknownHostException e) {
+      // ...
+      } catch (IOException e) {
+      // ...
+      }    
+
+      return alluserlist.get(0);
     }
     
     @Override
-    public User editUser(User forEdit) throws UserException{
+    public User editUser(User forEdit, String id) throws UserException{
+      System.out.print(forEdit.getEmail()+"\n");
+      System.out.print(forEdit.getId()+"\n");      
+      System.out.println("the user account being edited"+new Gson().toJson(forEdit));
+
       try{
-          if(forEdit.getId() == null)
-          throw new UserException("ID cannot be blank");
-        
-          User toEdit=userMap.get(forEdit.getId());
-        
-          if(toEdit == null)
-            throw new UserException("User not found");
-        
-          if(forEdit.getEmail() != null){
-            toEdit.setEmail(forEdit.getEmail());
+        //Set up datastore and collections
+        DB db = new MongoClient().getDB(Path.Database.LOCAL_DBNAME);            
+        Jongo ds = new Jongo(db); 
+        MongoCollection users = ds.getCollection(Path.Database.USER_COLLECTION); 
+        if(id != null){
+          Iterable<User> foundusers = users.find("{id: "+id+"}").as(User.class); 
+          Iterator<User> alluser=foundusers.iterator();
+  
+          while (alluser.hasNext()) {
+            alluserlist.add(alluser.next());
           }
-        
-          if(forEdit.getFirstName() != null){
-            toEdit.setFirstName(forEdit.getFirstName());
+        }
+          if(alluserlist.get(0) !=null){
+            if(forEdit.getEmail() != null){
+              alluserlist.get(0).setEmail(forEdit.getEmail());
+            }
+
+            if(forEdit.getFirstName() != null){
+              alluserlist.get(0).setFirstName(forEdit.getFirstName());
+            }
+
+            if(forEdit.getLastName() != null){
+              alluserlist.get(0).setLastName(forEdit.getLastName());
+            }
+
+            if(forEdit.getId() != null){
+              alluserlist.get(0).setId(forEdit.getId());
+            }
           }
+          
         
-          if(forEdit.getLastName() != null){
-            toEdit.setLastName(forEdit.getLastName());
-          }
-        
-          if(forEdit.getId() != null){
-            toEdit.setId(forEdit.getId());
-          }
-        
-          return toEdit;
       }catch(Exception ex){
           throw new UserException(ex.getMessage());
       }
+     
+      return alluserlist.get(0);
     }
     
     @Override
     public void deleteUser(String id){
-     userMap.remove(id);
+      try{
+        //Set up datastore and collections
+        DB db = new MongoClient().getDB(Path.Database.LOCAL_DBNAME);            
+        Jongo ds = new Jongo(db); 
+        
+        MongoCollection users = ds.getCollection(Path.Database.USER_COLLECTION); 
+        users.remove("{id: "+id+"}");
+      } catch (UnknownHostException e) {
+      // ...
+      } catch (IOException e) {
+      // ...
+      }    
+
     }
     
     @Override
     public boolean userExist(String id){
-     return userMap.containsKey(id);
+      try{
+        //Set up datastore and collections
+        DB db = new MongoClient().getDB(Path.Database.LOCAL_DBNAME);            
+        Jongo ds = new Jongo(db); 
+        
+        MongoCollection users = ds.getCollection(Path.Database.USER_COLLECTION); 
+        Iterable<User> foundusers = users.find("{id: "+id+"}").as(User.class); 
+        Iterator<User> alluser=foundusers.iterator();
+
+        while (alluser.hasNext()) {
+          alluserlist.add(alluser.next());
+        }
+
+      } catch (UnknownHostException e) {
+      // ...
+      } catch (IOException e) {
+      // ...
+      }    
+
+      return (alluserlist.get(0)!=null);
     }
     
 }

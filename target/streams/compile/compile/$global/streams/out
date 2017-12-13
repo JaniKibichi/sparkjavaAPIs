@@ -1,8 +1,17 @@
-[0m[[0m[33mwarn[0m] [0m[0m/home/graham/code/baeldung/src/main/java/com/mjuaji/baeldung/users/UserServiceMapImpl.java:6:1: com.sun.org.apache.xpath.internal.axes.IteratorPool is internal proprietary API and may be removed in a future release[0m
-[0m[[0m[33mwarn[0m] [0m[0mimport com.sun.org.apache.xpath.internal.axes.IteratorPool;[0m
-[0m[[0m[33mwarn[0m] [0m[0m/home/graham/code/baeldung/src/main/java/com/mjuaji/baeldung/users/UserServiceMapImpl.java:66:1: unreachable catch clause[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/graham/code/baeldung/src/main/java/com/mjuaji/baeldung/users/UserServiceMapImpl.java:68:1: unreachable catch clause[0m
+[0m[[0m[33mwarn[0m] [0m[0m  thrown type java.net.UnknownHostException has already been caught[0m
+[0m[[0m[33mwarn[0m] [0m[0mcatch (IOException e) {[0m
+[0m[[0m[33mwarn[0m] [0m[0m        // ...[0m
+[0m[[0m[33mwarn[0m] [0m[0m      }[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/graham/code/baeldung/src/main/java/com/mjuaji/baeldung/users/UserServiceMapImpl.java:92:1: unreachable catch clause[0m
 [0m[[0m[33mwarn[0m] [0m[0m  thrown type java.net.UnknownHostException has already been caught[0m
 [0m[[0m[33mwarn[0m] [0m[0m      } catch (IOException e) {[0m
-[0m[[0m[33mwarn[0m] [0m[0m/home/graham/code/baeldung/src/main/java/com/mjuaji/baeldung/users/UserServiceMapImpl.java:89:1: unreachable catch clause[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/graham/code/baeldung/src/main/java/com/mjuaji/baeldung/users/UserServiceMapImpl.java:117:1: unreachable catch clause[0m
+[0m[[0m[33mwarn[0m] [0m[0m  thrown type java.net.UnknownHostException has already been caught[0m
+[0m[[0m[33mwarn[0m] [0m[0m      } catch (IOException e) {[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/graham/code/baeldung/src/main/java/com/mjuaji/baeldung/users/UserServiceMapImpl.java:180:1: unreachable catch clause[0m
+[0m[[0m[33mwarn[0m] [0m[0m  thrown type java.net.UnknownHostException has already been caught[0m
+[0m[[0m[33mwarn[0m] [0m[0m      } catch (IOException e) {[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/graham/code/baeldung/src/main/java/com/mjuaji/baeldung/users/UserServiceMapImpl.java:267:1: unreachable catch clause[0m
 [0m[[0m[33mwarn[0m] [0m[0m  thrown type java.net.UnknownHostException has already been caught[0m
 [0m[[0m[33mwarn[0m] [0m[0m      } catch (IOException e) {[0m

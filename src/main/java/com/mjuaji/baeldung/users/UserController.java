@@ -55,8 +55,11 @@ public class UserController{
 
     private static Object editUser(Request req, Response res)throws UserException{
         res.type("application/json");
+        System.out.println(req.body()+" incoming request \n");
+        System.out.println(req.params(":id")+" incoming id \n");
+
         User toEdit = new Gson().fromJson(req.body(), User.class);
-        User editedUser = userService.editUser(toEdit);
+        User editedUser = userService.editUser(toEdit,req.params(":id"));
         
         if(editedUser != null){
          return new Gson().toJson(
