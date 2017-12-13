@@ -18,7 +18,7 @@ public class UserController{
     }
     private static Object getUser(Request req, Response res){
         res.type("application/json");
-        return new Gson.toJson(
+        return new Gson().toJson(
             new StandardResponse(StatusResponse.SUCCESS, new Gson()
             .toJsonTree(userService.getUsers())));
     }
@@ -49,11 +49,11 @@ public class UserController{
     }
 
     //EDIT USER
-    public static Object handleEditUser(Request req, Response res){
+    public static Object handleEditUser(Request req, Response res)throws UserException{
         return editUser(req, res);
     }
 
-    private static Object editUser(Request req, Response res){
+    private static Object editUser(Request req, Response res)throws UserException{
         res.type("application/json");
         User toEdit = new Gson().fromJson(req.body(), User.class);
         User editedUser = userService.editUser(toEdit);

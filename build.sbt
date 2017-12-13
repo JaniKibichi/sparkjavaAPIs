@@ -12,3 +12,8 @@ libraryDependencies += "org.slf4j" % "slf4j-simple" % "1.7.25"
 
 libraryDependencies += "com.google.code.gson" % "gson" % "2.8.2"
 
+libraryDependencies += "org.mongodb" % "mongo-java-driver" % "2.13.3"
+
+libraryDependencies += "org.mongodb" % "bson" % "2.13.3"
+
+libraryDependencies += "org.jongo" % "jongo" % "1.3.0"

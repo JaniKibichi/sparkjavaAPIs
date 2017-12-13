@@ -11,7 +11,7 @@ public class App{
         int maxThreads = 99;
         int minThreads = 2;
         int timeOutMillis = 30000;
-        
+
         port(9190);
         threadPool(maxThreads,minThreads,timeOutMillis);       
         staticFiles.location("/public");
@@ -23,10 +23,21 @@ public class App{
         });
 
         get("/users", (req, res) -> { return UserController.handleGetUser(req, res); });
-        post("/users", (req, res)-> { return UserController.handleNewUser(req, res); });
+
         get("/users/:id", (req, res)-> { return UserController.handleUserByID(req, res); });
+
+        post("/users", (req, res)-> { return UserController.handleNewUser(req, res); });
+
         put("/users/:id",(req, res)-> { return UserController.handleEditUser(req, res); });
+
         delete("/users/:id",(req, res)-> { return UserController.handleDeleteUser(req, res); });
+
+
+        //catch all route
+        get("*",(req, res)-> {
+            res.type("application/json");
+            return "This request is not supported. \n";
+        });
     }
 
     public static void main(String[] args){
