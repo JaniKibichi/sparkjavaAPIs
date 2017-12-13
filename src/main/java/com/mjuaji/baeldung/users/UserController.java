@@ -75,7 +75,19 @@ public class UserController{
     }
 
     private static Object deleteUser(Request req, Response res){
-        
+        res.type("application/json");
+        userService.deleteUser(req.params(":id"));
+        return new Gson().toJson(new StandardResponse(StatusResponse.SUCCESS, "user deleted"));
     }
 
+    //OPTIONS USER
+    public static Object handleOptions(Request req, Response res){
+        return options(req, res);
+    }
+
+    private static Object options(Request req, Response res){
+        res.type("application/json");
+        
+        return new Gson().toJson(new StandardResponse(StatusResponse.SUCCESS,(userService.userExist(req.params(":id")))? "User exists":"User does not exists"));        
+    }
 }
